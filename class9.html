@@ -1,0 +1,71 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Class 9 Study Materials | Studyswift Materials</title>
+  <link rel="stylesheet" href="class9.css">
+</head>
+<body>
+  <header>
+    <div class="logo">
+      <img src="images/logo.png" alt="Studyswift Logo">
+      <h1>Class 9 Study Materials</h1>
+    </div>
+    <nav>
+      <a href="index.html">Home</a>
+    </nav>
+  </header>
+    <!-- Search Bar Section -->
+ <section class="search-section">
+    <input type="text" id="search-input" placeholder="Search Class 9 materials..." onkeyup="filterContent()">
+  </section>
+  <main>
+    <section class="intro">
+      <h2>Welcome to Class 9 Resources</h2>
+      <p>Find all the essential study materials, guides, and practice tests for Class 9.</p>
+    </section>
+
+    <section class="materials">
+      <h3>Essential Links</h3>
+      <ul>
+        <li><a href="#" onclick="loadPDF('pdfs/class9-maths.pdf')">NCERT Solutions for Class 9 Maths</a></li>
+        <li><a href="#" onclick="loadPDF('pdfs/class9-science.pdf')">NCERT Solutions for Class 9 Science</a></li>
+        <li><a href="#" onclick="loadPDF('pdfs/class9-socialscience.pdf')">Class 9 Social Science Notes</a></li>
+      </ul>
+    </section>
+
+    <section class="pdf-viewer">
+      <h3>PDF Viewer</h3>
+      <iframe id="pdfFrame" src="" width="100%" height="600px" style="border: none;"></iframe>
+    </section>
+  </main>
+
+  <footer>
+    <p>&copy; 2024 Studyswift Materials. All rights reserved.</p>
+  </footer>
+
+  <script>
+    function loadPDF(pdfPath) {
+      const pdfFrame = document.getElementById('pdfFrame');
+      pdfFrame.src = pdfPath;
+    }
+  </script>
+  <!-- JavaScript for Search Functionality -->
+  <script>
+    function filterContent() {
+      const query = document.getElementById('search-input').value.toLowerCase();
+      const subjects = document.querySelectorAll('.subject');
+
+      subjects.forEach(subject => {
+        const keywords = subject.getAttribute('data-keywords');
+        if (keywords.includes(query)) {
+          subject.style.display = 'block';
+        } else {
+          subject.style.display = 'none';
+        }
+      });
+    }
+  </script>
+</body>
+</html>
